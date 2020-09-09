@@ -1,18 +1,23 @@
 var startButton = document.querySelector("#startButton"); 
-var seconds = 10, $seconds = document.querySelector("#countdown");
-
-function startTimer() {
-    (function countdown() {
-        $seconds.textContent = seconds;
-        if(seconds --> 0) setTimeout(countdown, 1000);   
-    })();
-}
+var time = document.querySelector("#time");
+var timeLeft = 5;
 
 startButton.addEventListener("click", startTimer);
 
-if (seconds === 0){
-    startQuiz();
+function startTimer() {
+  setInterval(function(){
+        if(timeLeft <= 0) {
+            clearInterval(timeLeft=0);
+            startQuiz();
+        }
+      time.innerHTML = timeLeft;
+    timeLeft -=1;
+  }, 1000)
 }
+    
+
+
 function startQuiz() {
-    console.log("Quiz Underway");
+    timeLeft = 60;
+    document.getElementById("quizQuestion").innerHTML = "What is the sum of 2 + 2?";
 }
