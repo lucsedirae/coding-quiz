@@ -6,3 +6,7 @@ textarea {
 button {
     margin-top: 2rem;
 }
+
+#startButton {
+    margin-left: 33.33%;
+}

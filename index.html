@@ -16,13 +16,20 @@
         <div class="col-md-8 jumbotron">
             <div class="row">
                 <header class="col-md-8"><h1>Coding Quiz</h1></header>
+                <span class="col-md-4" id="time">0</span>
             </div>
             <div class="row">  
                 <textarea class="col-md-8" id="quizQuestion" placeholder="Click start to begin the quiz..."></textarea>
             </div>
-            <div class="row">    
+            <div class="row">
+                <button class="col-md-4" id="quizButton">Answer 1</button>
+                <button class="col-md-4" id="quizButton">Answer 2</button>
+                <button class="col-md-4" id="quizButton">Answer 3</button>
+            </div>
+            <div class="row">
                 <button class="col-md-4" id="startButton">Start Quiz</button>
-                <span class="col-md-4" id="time">0</span>
+            </div>
+            <div class="row" id="timerZone">
                 <span class="col-md-4" id="countdown">5</span>
             </div>
         </div>
