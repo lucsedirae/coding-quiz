@@ -1,0 +1,12 @@
+textarea {
+    width: 50%;
+    height: 15rem;
+}
+
+button {
+    margin-top: 2rem;
+}
+
+#startButton {
+    margin-left: 33.33%;
+}

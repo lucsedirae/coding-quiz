@@ -1,15 +1,8 @@
 var startButton = document.querySelector("#startButton"); 
-var time = document.querySelector("#time");
+var quizClock = document.querySelector("#quizClock");
 var countdown = document.querySelector("#countdown");
 var timeLeft;
 var userScore;
-
-var questionA = {
-    question: "What does 'const' mean?",
-    badAnswerA: "'const' is a function that cannot be changed after being declared.",
-    badAnswerB: "'const' is an abbreviation of constant and is a method that cannot be changed.",
-    goodAnswer: "'const' is a variable that cannot be changed once defined."
-};
 
 startButton.addEventListener("click", startTimer);
 
@@ -18,15 +11,17 @@ function startTimer() {
     var intervalId = setInterval(function(){
         if(startCount <= 0) {
             clearInterval(intervalId);
-            startQuiz();
+            quizTimer();
         }
         countdown.innerHTML = startCount;
         startCount -=1;
     }, 1000);
+    countdown.innerHTML = null;
     return;
 }
     
-function startQuiz() {
+function quizTimer() {
+    countdown.innerHTML = null;
     timeLeft = 10;
     quizQuestions();
 
@@ -35,18 +30,26 @@ function startQuiz() {
             clearInterval(intervalId);
             gameOver();
         }
-        time.innerHTML = timeLeft;
+        quizClock.innerHTML = timeLeft;
         timeLeft -=1;
     }, 1000)
     return;
 }
 
 function gameOver() {
-    document.getElementById("quizQuestion").innerHTML = "GAME OVER";
+    countdown.innerHTML = null;
+    document.getElementById("quizBox").innerHTML = "GAME OVER";
     return;
 }
 
 function quizQuestions() {
-    document.getElementById("quizQuestion").innerHTML = questionA.question;
+    countdown.innerHTML = null;
+    var questionArray = [questionA, questionB, questionC];
+
+
+
+
+
+    document.getElementById("quizBox").innerHTML = questionA.question;
     return;
 }

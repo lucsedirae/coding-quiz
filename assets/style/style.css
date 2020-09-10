@@ -1,12 +1,92 @@
-textarea {
-    width: 50%;
-    height: 15rem;
+body {
+    background-color: black;
 }
 
-button {
+header {
+    color: red;
+    text-align: center;
+    font-family: fantasy;
+}
+
+h2 {
+    color: black;
+    font-family: fantasy;
+    margin-top: 1rem;
+}
+
+main {
+    background-color: #24FF00;
+    height: 50rem;
+    border-radius: 2rem;
+    margin-left: 4rem;
     margin-top: 2rem;
 }
 
-#startButton {
-    margin-left: 33.33%;
+aside {
+    background-color: #24FF00;
+    height: 50rem;
+    border-radius: 2rem;
+    margin-top: 2rem;
+    margin-left: 6rem;
+}
+
+textarea {
+    resize: none;
+    font-family: fantasy;
+    color: black;
+    font-size: 2rem;
+}
+
+li {
+    margin-left: 1rem;
+    font-family: fantasy;
+    font-size: 2rem;
+}
+
+#highScore {
+    height: 32rem;
+    margin-top: 1rem;
+    margin-left: 5rem;
+    background-color: #E5E5E5;
+    border-radius: 1rem;
+    
+    padding-left: 1rem;
+    padding-top: 1rem;
+}
+
+#quizBox {
+    height: 20rem;
+    margin-top: 7rem;
+    margin-left: 5rem;
+    border-radius: 1rem;
+    background-color: #E5E5E5;
+    padding-top: 1rem;
+}
+
+#countdown {
+    margin-top: 7rem;
+    margin-left: 3rem;
+    border: none;
+    background-color: #24FF00;
+    font-size: 7rem;
+    font-family: fantasy;
+    color: hotpink;
+}
+
+#quizClock {
+    margin-left: 5rem;
+    background-color: #E5E5E5;
+    border-radius: 1rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
+}
+
+.quizButton {
+    font-family: fantasy;
+    font-size: 2rem;
+    height: 4rem;
+    margin-top: 5rem;
+    margin-left: 5rem;
+    background-color: red;
+    border-radius: 2rem;
 }
