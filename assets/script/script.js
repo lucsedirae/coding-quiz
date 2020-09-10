@@ -1,6 +1,10 @@
 var startButton = document.querySelector("#startButton"); 
 var quizClock = document.querySelector("#quizClock");
 var countdown = document.querySelector("#countdown");
+var answerA = document.querySelector("#answerA");
+var answerB = document.querySelector("#answerB");
+var answerC = document.querySelector("#answerC");
+var answerD = document.querySelector("#answerD");
 var timeLeft;
 var userScore;
 
@@ -16,14 +20,11 @@ function startTimer() {
         countdown.innerHTML = startCount;
         startCount -=1;
     }, 1000);
-    countdown.innerHTML = null;
     return;
 }
     
 function quizTimer() {
-    countdown.innerHTML = null;
     timeLeft = 10;
-    quizQuestions();
 
     var intervalId = setInterval(function(){
         if(timeLeft <= 0) {
@@ -33,23 +34,46 @@ function quizTimer() {
         quizClock.innerHTML = timeLeft;
         timeLeft -=1;
     }, 1000)
+    quizQuestions();
     return;
 }
 
 function gameOver() {
-    countdown.innerHTML = null;
-    document.getElementById("quizBox").innerHTML = "GAME OVER";
+    document.getElementById("question").innerHTML = "GAME OVER";
+    document.getElementById("answerA").innerHTML = "";
+    document.getElementById("answerB").innerHTML = "";
+    document.getElementById("answerC").innerHTML = "";
+    document.getElementById("answerD").innerHTML = "";
+
+
     return;
 }
 
 function quizQuestions() {
-    countdown.innerHTML = null;
-    var questionArray = [questionA, questionB, questionC];
+    var questionArray = [questionA.question, questionB.question, questionC.question];
+    var badAnswerA = [questionA.badAnswerA, questionB.badAnswerA, questionC.badAnswerA];
+    var badAnswerB = [questionA.badAnswerB, questionB.badAnswerB, questionC.badAnswerB];
+    var badAnswerC = [questionA.badAnswerC, questionB.badAnswerC, questionC.badAnswerC];
+    var goodAnswer = [questionA.goodAnswer, questionB.goodAnswer, questionC.goodAnswer];
+
+    var arrayRandomizer = Math.floor(Math.random() * questionArray.length);
+    document.getElementById("question").innerHTML = questionArray[arrayRandomizer];
+    document.getElementById("answerA").innerHTML = badAnswerA[arrayRandomizer];
+    document.getElementById("answerB").innerHTML = badAnswerB[arrayRandomizer];
+    document.getElementById("answerC").innerHTML = badAnswerC[arrayRandomizer];
+    document.getElementById("answerD").innerHTML = goodAnswer[arrayRandomizer];
 
 
 
-
-
-    document.getElementById("quizBox").innerHTML = questionA.question;
+    answerA.addEventListener("click", checkAnswerA);
+    answerB.addEventListener("click", checkAnswerB);
+    answerC.addEventListener("click", checkAnswerC);
+    answerD.addEventListener("click", checkAnswerD);
+    
+    // document.getElementById("quizBox").innerHTML = questionA.question;
     return;
+}
+
+function checkAnswerA() {
+
 }

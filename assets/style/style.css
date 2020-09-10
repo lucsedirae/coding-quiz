@@ -43,6 +43,11 @@ li {
     font-size: 2rem;
 }
 
+p {
+    font-family: fantasy;
+    font-size: 1.5rem;
+}
+
 #highScore {
     height: 32rem;
     margin-top: 1rem;
