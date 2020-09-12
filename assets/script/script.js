@@ -1,79 +1,122 @@
-var startButton = document.querySelector("#startButton"); 
+var startButton = document.querySelector("#startButton");
 var quizClock = document.querySelector("#quizClock");
 var countdown = document.querySelector("#countdown");
+var questionSpace = document.querySelector("#questionSpace");
 var answerA = document.querySelector("#answerA");
 var answerB = document.querySelector("#answerB");
 var answerC = document.querySelector("#answerC");
 var answerD = document.querySelector("#answerD");
+var answerBtnA = document.querySelector("#answerBtnA");
+var answerBtnB = document.querySelector("#answerBtnB");
+var answerBtnC = document.querySelector("#answerBtnC");
+var answerBtnD = document.querySelector("#answerBtnD");
 var timeLeft;
 var userScore;
+var questionChange = 0;
 
-startButton.addEventListener("click", startTimer);
+startButton.addEventListener("click", quizTimer);
+answerBtnA.addEventListener("click", checkAnswerA);
+answerBtnB.addEventListener("click", checkAnswerB);
+answerBtnC.addEventListener("click", checkAnswerC);
+answerBtnD.addEventListener("click", checkAnswerD);
 
-function startTimer() {
-    var startCount = 5;
-    var intervalId = setInterval(function(){
-        if(startCount <= 0) {
-            clearInterval(intervalId);
-            quizTimer();
-        }
-        countdown.innerHTML = startCount;
-        startCount -=1;
-    }, 1000);
-    return;
-}
-    
 function quizTimer() {
-    timeLeft = 10;
+  timeLeft = 50;
+  shuffle(questions);
+  quizQuestions();
 
-    var intervalId = setInterval(function(){
-        if(timeLeft <= 0) {
-            clearInterval(intervalId);
-            gameOver();
-        }
-        quizClock.innerHTML = timeLeft;
-        timeLeft -=1;
-    }, 1000)
-    quizQuestions();
-    return;
+  var intervalId = setInterval(function () {
+    if (timeLeft <= 0) {
+      clearInterval(intervalId);
+      gameOver();
+    }
+    quizClock.innerHTML = timeLeft;
+    timeLeft -= 1;
+  }, 1000);
+  return;
 }
 
 function gameOver() {
-    document.getElementById("question").innerHTML = "GAME OVER";
-    document.getElementById("answerA").innerHTML = "";
-    document.getElementById("answerB").innerHTML = "";
-    document.getElementById("answerC").innerHTML = "";
-    document.getElementById("answerD").innerHTML = "";
-
-
-    return;
+  questionSpace.innerHTML = "GAME OVER";
+  answerA.innerHTML = "";
+  answerB.innerHTML = "";
+  answerC.innerHTML = "";
+  answerD.innerHTML = "";
+  return;
 }
 
 function quizQuestions() {
-    var questionArray = [questionA.question, questionB.question, questionC.question];
-    var badAnswerA = [questionA.badAnswerA, questionB.badAnswerA, questionC.badAnswerA];
-    var badAnswerB = [questionA.badAnswerB, questionB.badAnswerB, questionC.badAnswerB];
-    var badAnswerC = [questionA.badAnswerC, questionB.badAnswerC, questionC.badAnswerC];
-    var goodAnswer = [questionA.goodAnswer, questionB.goodAnswer, questionC.goodAnswer];
-
-    var arrayRandomizer = Math.floor(Math.random() * questionArray.length);
-    document.getElementById("question").innerHTML = questionArray[arrayRandomizer];
-    document.getElementById("answerA").innerHTML = badAnswerA[arrayRandomizer];
-    document.getElementById("answerB").innerHTML = badAnswerB[arrayRandomizer];
-    document.getElementById("answerC").innerHTML = badAnswerC[arrayRandomizer];
-    document.getElementById("answerD").innerHTML = goodAnswer[arrayRandomizer];
-
-
-
-    answerA.addEventListener("click", checkAnswerA);
-    answerB.addEventListener("click", checkAnswerB);
-    answerC.addEventListener("click", checkAnswerC);
-    answerD.addEventListener("click", checkAnswerD);
-    
-    // document.getElementById("quizBox").innerHTML = questionA.question;
-    return;
+  shuffle(questions[questionChange].choices);
+  questionSpace.innerHTML = questions[questionChange].question;
+  answerA.innerHTML = questions[questionChange].choices[0];
+  answerB.innerHTML = questions[questionChange].choices[1];
+  answerC.innerHTML = questions[questionChange].choices[2];
+  answerD.innerHTML = questions[questionChange].choices[3];
+  return;
 }
 
 function checkAnswerA() {
+  if (answerA.innerHTML === questions[questionChange].answer) {
+    timeLeft = (timeLeft + 5);
+    ++questionChange;
+    quizQuestions();
+  }else
+  if (answerA.innerHTML !== questions[questionChange].answer) {
+    console.log("wrong");
+    timeLeft = (timeLeft - 5);
+    ++questionChange;
+    quizQuestions();
+  }
+}
+function checkAnswerB() {
+  if (answerB.innerHTML === questions[questionChange].answer) {
+    timeLeft = (timeLeft + 5);
+    ++questionChange;
+    quizQuestions();
+  }
+    console.log("wrong");
+    timeLeft = (timeLeft - 5);
+    ++questionChange;
+    quizQuestions();
+}
+function checkAnswerC() {
+  if (answerC.innerHTML === questions[questionChange].answer) {
+    timeLeft = (timeLeft + 5);
+    ++questionChange;
+    quizQuestions();
+  }else
+    if (answerC.innerHTML !== questions[questionChange].answer) {
+    console.log("wrong");
+    timeLeft = (timeLeft - 5);
+    ++questionChange;
+    quizQuestions();
+  }
+}
+function checkAnswerD() {
+  if (answerD.innerHTML === questions[questionChange].answer) {
+    timeLeft = (timeLeft + 5);
+    ++questionChange;
+    quizQuestions();
+  }else
+  if (answerD.innerHTML !== questions[questionChange].answer) {
+    console.log("wrong");
+    timeLeft = (timeLeft - 5);
+    ++questionChange;
+    quizQuestions();
+  }
+}
 
+
+function shuffle(array) {
+  var currentIndex = array.length, tempValue, randomIndex;
+
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    tempValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = tempValue;
+  }
+  return array;
 }

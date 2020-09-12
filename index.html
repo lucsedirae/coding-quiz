@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Code Quiz</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -19,35 +19,42 @@
                 <div class="row">
                     <div class="col-md-6" id="quizBox">
                         <div class="row">
-                            <p class = "col-md-12" id="question">Press 'Start Quiz' To Begin</p>
+                            <span class="col-md-3">Question:</span>
+                            <span class = "col-md-9" id="questionSpace">Press 'Start Quiz' To Begin</span>
                         </div>
                         <div class="row">
-                            <p class = "col-md-12" id="answerA"></p>
+                            <span class="col-md-3">Answer A:</span>
+                            <span class = "col-md-9" id="answerA"></span>
                         </div>
                         <div class="row">
-                            <p class = "col-md-12" id="answerB"></p>
+                            <span class="col-md-3">Answer B:</span>
+                            <span class = "col-md-9" id="answerB"></span>
                         </div>
                         <div class="row">
-                            <p class = "col-md-12" id="answerC"></p>
+                            <span class="col-md-3">Answer C:</span>
+                            <span class = "col-md-9" id="answerC"></span>
                         </div>
                         <div class="row">
-                            <p class = "col-md-12" id="answerD"></p>
+                            <span class="col-md-3 ">Answer D:</span>
+                            <span class = "col-md-9" id="answerD"></span>
                         </div>
 
                     </div>
-                    <textarea class="col-md-4" id="countdown"></textarea>
+                    <div class="col-md-4">
+                        <textarea id="quizClock" placeholder="0:00"></textarea>
+                    </div>
                 </div>
 
 
                 <div class="row">
-                    <button class="col-md-3 quizButton" id="answerA">Answer A</button>
-                    <button class="col-md-3 quizButton" id="answerB">Answer B</button>
+                    <button class="col-md-3 quizButton" id="answerBtnA">Answer A</button>
+                    <button class="col-md-3 quizButton" id="answerBtnB">Answer B</button>
                     <button class="col-md-3 quizButton" id="startButton">Start Quiz</button>
 
                 </div>
                 <div class="row">
-                    <button class="col-md-3 quizButton" id="answerC">Answer C</button>
-                    <button class="col-md-3 quizButton" id="answerD">Answer D</button>
+                    <button class="col-md-3 quizButton" id="answerBtnC">Answer C</button>
+                    <button class="col-md-3 quizButton" id="answerBtnD">Answer D</button>
                 </div>
 
             </main>
@@ -62,9 +69,7 @@
                     </ul>
                 </div>
 
-                <div class="row">
-                    <textarea id="quizClock" placeholder="0:00"></textarea>
-                </div>
+                
             </aside>
         </div>
 
