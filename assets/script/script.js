@@ -11,8 +11,8 @@ var answerBtnB = document.querySelector("#answerBtnB");
 var answerBtnC = document.querySelector("#answerBtnC");
 var answerBtnD = document.querySelector("#answerBtnD");
 var timeLeft;
-var userScore;
 var questionChange = 0;
+var userName = "";
 
 startButton.addEventListener("click", quizTimer);
 answerBtnA.addEventListener("click", checkAnswerA);
@@ -20,21 +20,26 @@ answerBtnB.addEventListener("click", checkAnswerB);
 answerBtnC.addEventListener("click", checkAnswerC);
 answerBtnD.addEventListener("click", checkAnswerD);
 
-function quizTimer() {
-  timeLeft = 50;
-  shuffle(questions);
-  quizQuestions();
 
-  var intervalId = setInterval(function () {
-    if (timeLeft <= 0) {
-      clearInterval(intervalId);
-      gameOver();
-    }
-    quizClock.innerHTML = timeLeft;
-    timeLeft -= 1;
-  }, 1000);
-  return;
-}
+
+  function quizTimer() {
+    timeLeft = 50;
+    shuffle(questions);
+    quizQuestions(); 
+    var intervalId = setInterval(function () {
+      if (questionChange === (questions.length)) {
+        clearInterval(intervalId);
+        gameOver();
+      }  
+      if (timeLeft <= 0) {
+        clearInterval(intervalId);
+        gameOver();
+      }
+      quizClock.innerHTML = timeLeft;
+      timeLeft -= 1;
+    }, 1000);
+    return;
+  }
 
 function gameOver() {
   questionSpace.innerHTML = "GAME OVER";
@@ -42,7 +47,22 @@ function gameOver() {
   answerB.innerHTML = "";
   answerC.innerHTML = "";
   answerD.innerHTML = "";
+  userName = prompt("Game over! You scored " + timeLeft + " points! Enter your name to log your high score.")
+  highScore();
   return;
+}
+
+function highScore(){
+  localStorage.setItem(userName, timeLeft);
+
+  var userNameNode = document.createElement("li");
+  var scoreNode = document.createElement("li");
+
+  userNameNode.appendChild(userName);
+  document.getElementById("highScoreName").appendChild(userNameNode);
+  scoreNode.appendChild(timeLeft);
+  document.getElementById("highScore").appendChild(scoreNode);
+  
 }
 
 function quizQuestions() {
@@ -57,58 +77,55 @@ function quizQuestions() {
 
 function checkAnswerA() {
   if (answerA.innerHTML === questions[questionChange].answer) {
-    timeLeft = (timeLeft + 5);
+    timeLeft = timeLeft + 5;
     ++questionChange;
     quizQuestions();
-  }else
-  if (answerA.innerHTML !== questions[questionChange].answer) {
+  } else if (answerA.innerHTML !== questions[questionChange].answer) {
     console.log("wrong");
-    timeLeft = (timeLeft - 5);
+    timeLeft = timeLeft - 5;
     ++questionChange;
     quizQuestions();
   }
 }
 function checkAnswerB() {
   if (answerB.innerHTML === questions[questionChange].answer) {
-    timeLeft = (timeLeft + 5);
+    timeLeft = timeLeft + 5;
+    ++questionChange;
+    quizQuestions();
+  } else if (answerB.innerHTML !== questions[questionChange].answer) {
+    timeLeft = timeLeft - 5;
     ++questionChange;
     quizQuestions();
   }
-    console.log("wrong");
-    timeLeft = (timeLeft - 5);
-    ++questionChange;
-    quizQuestions();
 }
 function checkAnswerC() {
   if (answerC.innerHTML === questions[questionChange].answer) {
-    timeLeft = (timeLeft + 5);
+    timeLeft = timeLeft + 5;
     ++questionChange;
     quizQuestions();
-  }else
-    if (answerC.innerHTML !== questions[questionChange].answer) {
-    console.log("wrong");
-    timeLeft = (timeLeft - 5);
+  } else if (answerC.innerHTML !== questions[questionChange].answer) {
+    timeLeft = timeLeft - 5;
     ++questionChange;
     quizQuestions();
   }
 }
 function checkAnswerD() {
   if (answerD.innerHTML === questions[questionChange].answer) {
-    timeLeft = (timeLeft + 5);
+    timeLeft = timeLeft + 5;
     ++questionChange;
     quizQuestions();
-  }else
-  if (answerD.innerHTML !== questions[questionChange].answer) {
+  } else if (answerD.innerHTML !== questions[questionChange].answer) {
     console.log("wrong");
-    timeLeft = (timeLeft - 5);
+    timeLeft = timeLeft - 5;
     ++questionChange;
     quizQuestions();
   }
 }
 
-
 function shuffle(array) {
-  var currentIndex = array.length, tempValue, randomIndex;
+  var currentIndex = array.length,
+    tempValue,
+    randomIndex;
 
   while (0 !== currentIndex) {
     randomIndex = Math.floor(Math.random() * currentIndex);
