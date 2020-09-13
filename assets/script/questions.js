@@ -11,8 +11,8 @@ var questions = [
     choices: ["and", "not equal to", "Assigns a variable", "or"],
     answer: "or"
     },
-    {question: "What is the correct syntax for creating a loop that iterates 7 times?",
-    choices: ["for (i: 0, i < 7, i++)", "for (i: 7; i > 0; i++)", "for (var i = 0, i < 7, i++)", "for (var i = 0; i < 7; i++)"],
-    answer: "for (var i = 0; i < 7; i++)"
+    {question: "What is a for loop?",
+    choices: ["A block of code that loops until manually stopped", "A block of code that redefines variable values", "A block of code that performs a specific task repeatedly while given parameters are met", "A block of code that loops after a specified amount of time"],
+    answer: "A block of code that performs a specific task repeatedly while given parameters are met"
     }
 ]

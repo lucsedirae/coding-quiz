@@ -1,3 +1,13 @@
+@keyframes correctAnswer {
+    from {background-color: blue;}
+    to {background-color: #E5E5E5;}
+}
+
+@keyframes wrongAnswer {
+    from {background-color: red;}
+    to {background-color: #E5E5E5;}
+}
+
 body {
     background-color: black;
 }
@@ -85,4 +95,14 @@ span {
     margin-left: 5rem;
     background-color: red;
     border-radius: 2rem;
+}
+
+.correctAnswer {
+    animation-name: correctAnswer;
+    animation-duration: 1s;
+}
+
+.wrongAnswer {
+    animation-name: wrongAnswer;
+    animation-duration: 1s;
 }

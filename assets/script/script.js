@@ -2,6 +2,7 @@ var startButton = document.querySelector("#startButton");
 var quizClock = document.querySelector("#quizClock");
 var countdown = document.querySelector("#countdown");
 var questionSpace = document.querySelector("#questionSpace");
+var quizBox = document.querySelector("#quizBox");
 var answerA = document.querySelector("#answerA");
 var answerB = document.querySelector("#answerB");
 var answerC = document.querySelector("#answerC");
@@ -14,24 +15,29 @@ var timeLeft;
 var questionChange = 0;
 var userName = "";
 
+var stored = document.createElement("li");
+var scoreNode = document.createElement("li");
+
+userNameNode.innerHTML = userName;
+document.getElementById("highScoreName").appendChild(userNameNode);
+
+scoreNode.innerHTML = timeLeft;
+document.getElementById("highScore").appendChild(scoreNode);
+
+
+
 startButton.addEventListener("click", quizTimer);
 answerBtnA.addEventListener("click", checkAnswerA);
 answerBtnB.addEventListener("click", checkAnswerB);
 answerBtnC.addEventListener("click", checkAnswerC);
 answerBtnD.addEventListener("click", checkAnswerD);
 
-
-
   function quizTimer() {
     timeLeft = 50;
     shuffle(questions);
     quizQuestions(); 
     var intervalId = setInterval(function () {
-      if (questionChange === (questions.length)) {
-        clearInterval(intervalId);
-        gameOver();
-      }  
-      if (timeLeft <= 0) {
+      if (timeLeft <= 0 || questionChange === (questions.length)) {
         clearInterval(intervalId);
         gameOver();
       }
@@ -47,7 +53,7 @@ function gameOver() {
   answerB.innerHTML = "";
   answerC.innerHTML = "";
   answerD.innerHTML = "";
-  userName = prompt("Game over! You scored " + timeLeft + " points! Enter your name to log your high score.")
+  userName = prompt("Game over! You scored " + timeLeft + " points! Enter your name to log your high score.");
   highScore();
   return;
 }
@@ -58,9 +64,10 @@ function highScore(){
   var userNameNode = document.createElement("li");
   var scoreNode = document.createElement("li");
 
-  userNameNode.appendChild(userName);
+  userNameNode.innerHTML = userName;
   document.getElementById("highScoreName").appendChild(userNameNode);
-  scoreNode.appendChild(timeLeft);
+  
+  scoreNode.innerHTML = timeLeft;
   document.getElementById("highScore").appendChild(scoreNode);
   
 }
@@ -75,50 +82,83 @@ function quizQuestions() {
   return;
 }
 
+function bgChangerCorrect() {
+  quizBox.classList.add("correctAnswer");
+  setTimeout(function() {
+    quizBox.classList.remove("correctAnswer"); 
+  }, 1000);
+  return;
+}
+
+function bgChangerWrong() {
+  quizBox.classList.add("wrongAnswer");
+  setTimeout(function() {
+    quizBox.classList.remove("wrongAnswer");
+  }, 1000);
+  return;
+}
+
 function checkAnswerA() {
   if (answerA.innerHTML === questions[questionChange].answer) {
+    bgChangerCorrect();
     timeLeft = timeLeft + 5;
     ++questionChange;
     quizQuestions();
+    return;
   } else if (answerA.innerHTML !== questions[questionChange].answer) {
-    console.log("wrong");
+    bgChangerWrong();
     timeLeft = timeLeft - 5;
     ++questionChange;
     quizQuestions();
+    return;
   }
 }
+
 function checkAnswerB() {
   if (answerB.innerHTML === questions[questionChange].answer) {
+    bgChangerCorrect();
     timeLeft = timeLeft + 5;
     ++questionChange;
     quizQuestions();
+    return;
   } else if (answerB.innerHTML !== questions[questionChange].answer) {
+    bgChangerWrong();
     timeLeft = timeLeft - 5;
     ++questionChange;
     quizQuestions();
+    return;
   }
 }
+
 function checkAnswerC() {
   if (answerC.innerHTML === questions[questionChange].answer) {
+    bgChangerCorrect();
     timeLeft = timeLeft + 5;
     ++questionChange;
     quizQuestions();
+    return;
   } else if (answerC.innerHTML !== questions[questionChange].answer) {
+    bgChangerWrong();
     timeLeft = timeLeft - 5;
     ++questionChange;
     quizQuestions();
+    return;
   }
 }
+
 function checkAnswerD() {
   if (answerD.innerHTML === questions[questionChange].answer) {
+    bgChangerCorrect();
     timeLeft = timeLeft + 5;
     ++questionChange;
     quizQuestions();
+    return;
   } else if (answerD.innerHTML !== questions[questionChange].answer) {
-    console.log("wrong");
+    bgChangerWrong();
     timeLeft = timeLeft - 5;
     ++questionChange;
     quizQuestions();
+    return;
   }
 }
 
