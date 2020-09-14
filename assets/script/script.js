@@ -14,16 +14,18 @@ var answerBtnD = document.querySelector("#answerBtnD");
 var timeLeft;
 var questionChange = 0;
 var userName = "";
+// var storedName = localStorage.getItem()
 
-var stored = document.createElement("li");
-var scoreNode = document.createElement("li");
 
-userNameNode.innerHTML = userName;
-document.getElementById("highScoreName").appendChild(userNameNode);
+// var storedNameNode = document.createElement("li");
+// var storedScoreNode = document.createElement("li");
 
-scoreNode.innerHTML = timeLeft;
-document.getElementById("highScore").appendChild(scoreNode);
+// userNameNode.innerHTML = userName;
+// document.getElementById("highScoreName").appendChild(storedNameNode);
 
+// scoreNode.innerHTML = timeLeft;
+// document.getElementById("highScore").appendChild(storedScoreNode);
+alert("Welcome to the JavaScript edition of the Quizmaster 3000. Click start to begin the quiz. Match the correct answer with the matching answer button. Wrong answers will turn the screen red while correct answers will turn the screen blue.")
 
 
 startButton.addEventListener("click", quizTimer);
@@ -55,6 +57,14 @@ function gameOver() {
   answerD.innerHTML = "";
   userName = prompt("Game over! You scored " + timeLeft + " points! Enter your name to log your high score.");
   highScore();
+  var playAgain = confirm ("Would you like to play again?");
+  if (playAgain = true) {
+    location.reload();
+  } else
+  {
+  alert("Thanks for playing! Time to go study!");
+  window.open("http://w3schools.com");
+  }
   return;
 }
 
