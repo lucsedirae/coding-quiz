@@ -6,6 +6,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./assets/style/style.css">
     </head>
 
@@ -24,10 +25,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-10">
-                        <label for="userName">Your name:</label>
+                    <div class="col-md-12">
+                        <label for="userName">Your name: </label>
                         <input type="text" name="userName" id="userName">
-                        <button class="quizArea" id="submitBtn">Submit</button>
+                        <br>
+                        <button class="button " id="submitBtn">Submit</button>
                     </div>
                 </div>
                 <div class="row">
@@ -50,25 +52,25 @@
                             <span class="col-md-3 quizArea">Question:</span>
                             <span class = "col-md-5" id="questionSpace">Press 'Start Quiz' To Begin</span>
                         </div>
-                        <hr>
+                        <br>
                         <div class="row">
                             <button class="col-md-3 quizArea" id = "answerBtnA">Answer A:</button>
-                            <span class = "col-md-5 quizArea" id="answerA"></span>
+                            <span class = "col-md-5 quizArea" id="answerA">Potential answers will appear next to these buttons.</span>
                         </div>
-                        <hr>
+                        <br>
                         <div class="row">
                             <button class="col-md-3 quizArea" id = "answerBtnB">Answer B:</button>
-                            <span class = "col-md-5 quizArea" id="answerB"></span>
+                            <span class = "col-md-5 quizArea" id="answerB">Right answers gain you 15 seconds. Wrong answers will dock 25 seconds.</span>
                         </div>
-                        <hr>
+                        <br>
                         <div class="row">
                             <button class="col-md-3 quizArea" id="answerBtnC">Answer C:</button>
-                            <span class = "col-md-5 quizArea" id="answerC"></span>
+                            <span class = "col-md-5 quizArea" id="answerC">Wrong answers will flash red, right answers blue.</span>
                         </div>
-                        <hr>
+                        <br>
                         <div class="row">
                             <button class="col-md-3 quizArea" id="answerBtnD">Answer D:</button>
-                            <span class = "col-md-5 quizArea" id="answerD"></span>
+                            <span class = "col-md-5 quizArea" id="answerD">The remaining time on the timer will be your score.</span>
                         </div>
 
                         <div class="row">

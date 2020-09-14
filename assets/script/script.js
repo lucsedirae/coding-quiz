@@ -30,6 +30,10 @@ function quizTimer() {
     answerBtnC.addEventListener("click", checkAnswerC);
     answerBtnD.addEventListener("click", checkAnswerD);
 
+    if (timeLeft > 0) {
+        startButton.removeEventListener("click", quizTimer);
+    }
+
     var intervalId = setInterval(function () {
         if (timeLeft <= 0 || questionChange === (questions.length)) {
         clearInterval(intervalId);
@@ -105,13 +109,13 @@ function bgChangerWrong() {
 function checkAnswerA() {
     if (answerA.innerHTML === questions[questionChange].answer) {
     bgChangerCorrect();
-    timeLeft = timeLeft + 5;
+    timeLeft = timeLeft + 15;
     ++questionChange;
     quizQuestions();
     return;
     } else if (answerA.innerHTML !== questions[questionChange].answer) {
     bgChangerWrong();
-    timeLeft = timeLeft - 5;
+    timeLeft = timeLeft - 25;
     ++questionChange;
     quizQuestions();
     return;
@@ -121,13 +125,13 @@ function checkAnswerA() {
 function checkAnswerB() {
     if (answerB.innerHTML === questions[questionChange].answer) {
         bgChangerCorrect();
-        timeLeft = timeLeft + 5;
+        timeLeft = timeLeft + 15;
         ++questionChange;
         quizQuestions();
         return;
     } else if (answerB.innerHTML !== questions[questionChange].answer) {
         bgChangerWrong();
-        timeLeft = timeLeft - 5;
+        timeLeft = timeLeft - 25;
         ++questionChange;
         quizQuestions();
         return;
@@ -137,13 +141,13 @@ function checkAnswerB() {
 function checkAnswerC() {
     if (answerC.innerHTML === questions[questionChange].answer) {
         bgChangerCorrect();
-        timeLeft = timeLeft + 5;
+        timeLeft = timeLeft + 15;
         ++questionChange;
         quizQuestions();
         return;
     } else if (answerC.innerHTML !== questions[questionChange].answer) {
         bgChangerWrong();
-        timeLeft = timeLeft - 5;
+        timeLeft = timeLeft - 25;
         ++questionChange;
         quizQuestions();
         return;
@@ -153,13 +157,13 @@ function checkAnswerC() {
 function checkAnswerD() {
     if (answerD.innerHTML === questions[questionChange].answer) {
         bgChangerCorrect();
-        timeLeft = timeLeft + 5;
+        timeLeft = timeLeft + 15;
         ++questionChange;
         quizQuestions();
         return;
     } else if (answerD.innerHTML !== questions[questionChange].answer) {
         bgChangerWrong();
-        timeLeft = timeLeft - 5;
+        timeLeft = timeLeft - 25;
         ++questionChange;
         quizQuestions();
         return;
