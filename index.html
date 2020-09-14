@@ -2,80 +2,89 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Code Quiz</title>
+        <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="./assets/style/style.css">
     </head>
 
-    <body class="container-fluid">
-        <header class="row">
-            <h1 class="col-md-12">Code Quiz</h1>
-        </header>
+
+    <body class="container-fluid" id="bodyEl">
+
 
         <div class="row">
-            <main class="col-md-7">
+            <div class = "col-md-12 modal" id="gameOverModal">
                 <div class="row">
-                    <div class="col-md-6" id="quizBox">
-                        <div class="row">
-                            <span class="col-md-3">Question:</span>
-                            <span class = "col-md-9" id="questionSpace">Press 'Start Quiz' To Begin</span>
-                        </div>
-                        <div class="row">
-                            <span class="col-md-3">Answer A:</span>
-                            <span class = "col-md-9" id="answerA"></span>
-                        </div>
-                        <div class="row">
-                            <span class="col-md-3">Answer B:</span>
-                            <span class = "col-md-9" id="answerB"></span>
-                        </div>
-                        <div class="row">
-                            <span class="col-md-3">Answer C:</span>
-                            <span class = "col-md-9" id="answerC"></span>
-                        </div>
-                        <div class="row">
-                            <span class="col-md-3 ">Answer D:</span>
-                            <span class = "col-md-9" id="answerD"></span>
-                        </div>
+                    <button class="close" id = "closeButton">x</button>
 
-                    </div>
-                    <div class="col-md-4">
-                        <textarea id="quizClock" placeholder="0:00"></textarea>
+                    <div class="col-md-8 modal-content">
+                        <p>Thanks for testing your knowledge with the coding quiz.</p>
+                        <p>Enter your name below to save your score.</p>
                     </div>
                 </div>
-
-
                 <div class="row">
-                    <button class="col-md-3 quizButton" id="answerBtnA">Answer A</button>
-                    <button class="col-md-3 quizButton" id="answerBtnB">Answer B</button>
-                    <button class="col-md-3 quizButton" id="startButton">Start Quiz</button>
-
+                    <div class="col-md-10">
+                        <label for="userName">Your name:</label>
+                        <input type="text" name="userName" id="userName">
+                        <button class="quizArea" id="submitBtn">Submit</button>
+                    </div>
                 </div>
                 <div class="row">
-                    <button class="col-md-3 quizButton" id="answerBtnC">Answer C</button>
-                    <button class="col-md-3 quizButton" id="answerBtnD">Answer D</button>
+                    <span>Your Score:</span>
+                    <span id="yourScore"></span>
                 </div>
 
-            </main>
-            <aside class="col-md-3">
-                <header class="row">
-                    <h2 class="col-md-12">High Scores</h2>
-                </header>
+            </div>
+    
+            <main class="col-md-8">
+                <div class="row"> 
+                    <header class="col-md-12">
+                        <h1>JavaScript Pop Quiz</h1>
+                    </header>
+                </div>
 
                 <div class="row">
-                    <ul class = "col-md-6 scoreboard" id="highScoreName"></ul>
-                    <ul class = "col-md-3 scoreboard" id="highScore"></ul>
-                </div>
+                    <div class="col-md-10" id="quizBox">
+                        <div class="row">
+                            <span class="col-md-3 quizArea">Question:</span>
+                            <span class = "col-md-5" id="questionSpace">Press 'Start Quiz' To Begin</span>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <button class="col-md-3 quizArea" id = "answerBtnA">Answer A:</button>
+                            <span class = "col-md-5 quizArea" id="answerA"></span>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <button class="col-md-3 quizArea" id = "answerBtnB">Answer B:</button>
+                            <span class = "col-md-5 quizArea" id="answerB"></span>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <button class="col-md-3 quizArea" id="answerBtnC">Answer C:</button>
+                            <span class = "col-md-5 quizArea" id="answerC"></span>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <button class="col-md-3 quizArea" id="answerBtnD">Answer D:</button>
+                            <span class = "col-md-5 quizArea" id="answerD"></span>
+                        </div>
 
-                
-            </aside>
+                        <div class="row">
+                            <button class = "col-md-3" id = "startButton">Start Quiz</button>
+                        </div>
+                    </div>
+                </div>
+            </main> 
+            <div class="col-md-1">
+                <textarea id="quizClock" placeholder="Timed Quiz!"></textarea>
+            </div>
+
         </div>
 
 
-        <footer>
 
-        </footer>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
