@@ -1,6 +1,8 @@
 # JavaScrip Coding Quiz
 ### Welcome to LucSedirae's JavaScript quiz
 <br>
+https://lucsedirae.github.io/coding-quiz/
+<br>
 In this application, the user is presented with a set of instructions and a start button.<br>
 Once the start button is clicked, the instructions are replaced with a question and a series<br>
 of possible answers. Click the corresponding answer button to submit your answer.<br>
