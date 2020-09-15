@@ -19,6 +19,11 @@ var questionChange = 0;
 var nameArray = [];
 var scoreArray = [];
 
+var tempNameArray = JSON.parse(localStorage.getItem("names"));
+var tempScoreArray = JSON.parse(localStorage.getItem("scores"));
+
+
+
 startButton.addEventListener("click", quizTimer);
 
 
@@ -75,8 +80,19 @@ function gameOver() {
 
 function highScore(){
     userName = document.getElementById("userName").value;
-    nameArray.push(userName);
-    scoreArray.push(timeLeft);
+    if (tempNameArray === null) {
+        nameArray.push(userName);
+    }else{
+        nameArray = tempNameArray;
+        nameArray.push(userName);
+    }
+
+    if (tempScoreArray === null) {
+        scoreArray.push(timeLeft);
+    }else{
+        scoreArray = tempScoreArray;
+        scoreArray.push(timeLeft);
+    }
 
     localStorage.setItem("names", JSON.stringify(nameArray));
     localStorage.setItem("scores", JSON.stringify(scoreArray));
