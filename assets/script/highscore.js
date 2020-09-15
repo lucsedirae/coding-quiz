@@ -4,30 +4,17 @@ var scoreList = document.querySelector("#scoreList");
 window.addEventListener("load", init);
 
 function init() {
-    var storedNames = JSON.parse(localStorage.getItem("nameArray"));
+    var storedNames = JSON.parse(localStorage.getItem("names"));
     if (storedNames !== null) {
         nameArray = storedNames;
     }
 
-    var storedScores = JSON.parse(localStorage.getItem("scoreArray"));
+    var storedScores = JSON.parse(localStorage.getItem("scores"));
     if (storedScores !== null) {
         scoreArray = storedScores;
     }
     printHighScores();
-    // var storedNames = JSON.parse(localStorage.getItem("userNames"));
-    // if (storedNames !== null) {
-    //     nameArray = storedNames;
-    // }
-
-    // var storedScores = JSON.parse(localStorage.getItem("timeLeft"));
-    // if (storedScores !== null) {
-    //     scoreArray = storedScores;
-    // }
-    // printHighScores();
-
 }
-
-
 
 function printHighScores() {
     nameList.innerHTML = "";
@@ -50,6 +37,4 @@ function printHighScores() {
         scoreLi.setAttribute("data-index", j);
         scoreList.appendChild(scoreLi);
     }
-
-    console.log(nameArray);
 }

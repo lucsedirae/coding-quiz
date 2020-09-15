@@ -78,8 +78,8 @@ function highScore(){
     nameArray.push(userName);
     scoreArray.push(timeLeft);
 
-    localStorage.setItem("nameArray", JSON.stringify(nameArray));
-    localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
+    localStorage.setItem("names", JSON.stringify(nameArray));
+    localStorage.setItem("scores", JSON.stringify(scoreArray));
 
     window.location.href = "highscores.html";
     console.log(window.location.href);
