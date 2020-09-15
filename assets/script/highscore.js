@@ -4,16 +4,27 @@ var scoreList = document.querySelector("#scoreList");
 window.addEventListener("load", init);
 
 function init() {
-    var storedNames = JSON.parse(localStorage.getItem("userName"));
+    var storedNames = JSON.parse(localStorage.getItem("nameArray"));
     if (storedNames !== null) {
         nameArray = storedNames;
     }
 
-    var storedScores = JSON.parse(localStorage.getItem("timeLeft"));
+    var storedScores = JSON.parse(localStorage.getItem("scoreArray"));
     if (storedScores !== null) {
         scoreArray = storedScores;
     }
     printHighScores();
+    // var storedNames = JSON.parse(localStorage.getItem("userNames"));
+    // if (storedNames !== null) {
+    //     nameArray = storedNames;
+    // }
+
+    // var storedScores = JSON.parse(localStorage.getItem("timeLeft"));
+    // if (storedScores !== null) {
+    //     scoreArray = storedScores;
+    // }
+    // printHighScores();
+
 }
 
 

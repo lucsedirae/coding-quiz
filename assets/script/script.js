@@ -14,9 +14,10 @@ var closeButton = document.querySelector("#closeButton");
 var userName = "";
 var timeLeft = 50;
 var questionChange = 0;
-var nameArray = JSON.parse(localStorage.getItem("nameArray"));
-var scoreArray = JSON.parse(localStorage.getItem("scoreArray"));
-
+// var nameArray = JSON.parse(localStorage.getItem("nameArray"));
+// var scoreArray = JSON.parse(localStorage.getItem("scoreArray"));
+var nameArray = [];
+var scoreArray = [];
 
 startButton.addEventListener("click", quizTimer);
 
@@ -56,6 +57,7 @@ function quizQuestions() {
   }
   
 function gameOver() {
+    
     questionSpace.innerHTML = "GAME OVER";
     clearAnswers();
     modal.style.display = "block";
@@ -75,12 +77,12 @@ function highScore(){
     userName = document.getElementById("userName").value;
     nameArray.push(userName);
     scoreArray.push(timeLeft);
-    console.log(nameArray);
 
     localStorage.setItem("nameArray", JSON.stringify(nameArray));
     localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
-    // window.location.href = "highscores.html";
-    window.location.assign("https://lucsedirae.github.io/coding-quiz/highscores.html");
+
+    window.location.href = "highscores.html";
+    console.log(window.location.href);
 }
 
 function clearAnswers(){
