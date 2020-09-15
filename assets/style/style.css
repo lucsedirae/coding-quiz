@@ -41,7 +41,7 @@ li {
 }
 
 #quizBox {
-    height: 40rem;
+    height: 100%;
 }
 
 #quizClock {
