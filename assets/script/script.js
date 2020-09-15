@@ -80,7 +80,7 @@ function highScore(){
     localStorage.setItem("nameArray", JSON.stringify(nameArray));
     localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
     // window.location.href = "highscores.html";
-    window.location.assign("https://lucsedirae.github.io/coding-quiz/highscores.html");
+    location.href = "highscores.html";
 }
 
 function clearAnswers(){
