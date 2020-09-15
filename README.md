@@ -18,7 +18,7 @@ will pop up alerting you that you have finished the quiz and letting you know yo
 You can also enter your name here and click submit to store your high scores so you can track<br>
 your improvement with each instance of the quiz.<br>
 
-![quiz overview](.assets/images/Screenshot-A.png)
+![quiz overview](./assets/images/Screenshot-A.png)
 ![modal](./assets/images/Screenshot-C.png)
 ![high score page](./assets/images/Screenshot-B.png)
 
