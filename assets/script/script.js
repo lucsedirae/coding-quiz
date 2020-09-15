@@ -79,7 +79,8 @@ function highScore(){
 
     localStorage.setItem("nameArray", JSON.stringify(nameArray));
     localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
-    window.location.href = "highscores.html";
+    // window.location.href = "highscores.html";
+    window.location.assign("highscores.html");
 }
 
 function clearAnswers(){
