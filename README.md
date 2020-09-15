@@ -13,13 +13,12 @@ If you run out of time the quiz will score you based on the number of questions 
 If you receive a negative score, that means you should slow down, read the questions more<br>
 cafefully and try again.<br>
 <br>
-![image](./assets/images/Screenshot-A.png)
-<br>
+![alt text](./assets/images/Screenshot-A.png)
 Upon a game over scenario (either you ran out of time or finished all the questions) a modal<br>
 will pop up alerting you that you have finished the quiz and letting you know your final score.<br>
 You can also enter your name here and click submit to store your high scores so you can track<br>
 your improvement with each instance of the quiz.<br>
-![image](./assets/images/Screenshot-C.png)
+![alt text](./assets/images/Screenshot-C.png)
 <br>
-![image](./assets/images/Screenshot-B.png)
+![alt text](./assets/images/Screenshot-B.png)
 
