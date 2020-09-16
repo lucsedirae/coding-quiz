@@ -1,3 +1,4 @@
+//Global variables linking js to DOM
 var questionSpace = document.querySelector("#questionSpace");
 var answerA = document.querySelector("#answerA");
 var answerB = document.querySelector("#answerB");
@@ -11,25 +12,24 @@ var bodyEl = document.querySelector("#bodyEl");
 var modal = document.querySelector("#gameOverModal");
 var closeButton = document.querySelector("#closeButton");
 
+//Operational global variables
 var userName = "";
 var timeLeft = 50;
 var questionChange = 0;
-// var nameArray = JSON.parse(localStorage.getItem("nameArray"));
-// var scoreArray = JSON.parse(localStorage.getItem("scoreArray"));
 var nameArray = [];
 var scoreArray = [];
-
+//Temporary arrays that retrieve local storage and parses it to an array after active array is cleared and before new name is pushed
 var tempNameArray = JSON.parse(localStorage.getItem("names"));
 var tempScoreArray = JSON.parse(localStorage.getItem("scores"));
 
 
-
+//Event buttons that start quiz or check high score page
 startButton.addEventListener("click", quizTimer);
 document.getElementById("checkScoresBtn").addEventListener("click", function(){
     window.location.href = "highscores.html";
 })
 
-
+//This fuction sets initial quiz time, shuffles questions, listens for user input and then counts time down
 function quizTimer() {
     timeLeft = 50;
     shuffle(questions);
@@ -54,6 +54,7 @@ function quizTimer() {
     return;
 }
 
+//This function shuffles the order in which question answer choices appear then prints array of question objects to page
 function quizQuestions() {
     shuffle(questions[questionChange].choices);
     questionSpace.innerHTML = questions[questionChange].question;
@@ -63,7 +64,8 @@ function quizQuestions() {
     answerD.innerHTML = questions[questionChange].choices[3];
     return;
   }
-  
+
+  //Clears game page and calls a modal that displays final score and offers user option to store name and score
 function gameOver() {
     
     questionSpace.innerHTML = "GAME OVER";
@@ -74,13 +76,9 @@ function gameOver() {
         modal.style.display = "none";
     });
     document.getElementById("submitBtn").addEventListener("click", highScore);
-    // window.addEventListener("click", function(event) {
-    //     if (event.target == modal) {
-    //         modal.style.display = "none";
-    //     }
-    // });
 }
 
+//Converts arrays and records high score to local storage then calls high score page
 function highScore(){
     userName = document.getElementById("userName").value;
     if (tempNameArray === null) {
@@ -103,7 +101,7 @@ function highScore(){
     window.location.href = "highscores.html";
     console.log(window.location.href);
 }
-
+//Clears the answer fields
 function clearAnswers(){
     answerA.innerHTML = "";
     answerB.innerHTML = "";
@@ -111,7 +109,7 @@ function clearAnswers(){
     answerD.innerHTML = "";
     return;
 }
-
+//Changes background color blue if answer is correct
 function bgChangerCorrect() {
     bodyEl.classList.add("correctAnswer");
     setTimeout(function() {
@@ -119,7 +117,7 @@ function bgChangerCorrect() {
     }, 1000);
     return;
 }
-
+//Changes background color red if answer is incorrect
 function bgChangerWrong() {
     bodyEl.classList.add("wrongAnswer");
     setTimeout(function() {
@@ -127,7 +125,8 @@ function bgChangerWrong() {
     }, 1000);
     return;
 }  
-
+//The following 4 functions check the user input actions against the correct answer and either award or deduct time accordingly
+//These functions are tagged to be consolidated in future release to consolidate code and make it easier to read
 function checkAnswerA() {
     if (answerA.innerHTML === questions[questionChange].answer) {
     bgChangerCorrect();
@@ -143,7 +142,6 @@ function checkAnswerA() {
     return;
     }
 }
-
 function checkAnswerB() {
     if (answerB.innerHTML === questions[questionChange].answer) {
         bgChangerCorrect();
@@ -159,7 +157,6 @@ function checkAnswerB() {
         return;
     }
 }
-
 function checkAnswerC() {
     if (answerC.innerHTML === questions[questionChange].answer) {
         bgChangerCorrect();
@@ -175,7 +172,6 @@ function checkAnswerC() {
         return;
     }
 }
-
 function checkAnswerD() {
     if (answerD.innerHTML === questions[questionChange].answer) {
         bgChangerCorrect();
@@ -191,7 +187,12 @@ function checkAnswerD() {
         return;
     }
 }
-
+//This function is inspired by the Fisher-Yates (Knuth) Shuffle method
+//It takes an array argument and randomizes the order by executing a sequence of
+//replacement variable value changes. The result is a new array order allowing a 
+//randomization of question and choice order. For reference please see:
+//https://exceptionnotfound.net/understanding-the-fisher-yates-card-shuffling-algorithm/
+//https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffle(array) {
     var currentIndex = array.length,
       tempValue,

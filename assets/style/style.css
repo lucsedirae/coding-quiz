@@ -73,6 +73,13 @@ li {margin-left: 2rem;}
     margin-bottom: 2rem;
 }
 
+#clearScoresBtn {
+    margin-top: 1.5rem;
+    margin-left: 10%;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
+
 .quizArea {margin-left: 10%;}
 
 .correctAnswer {
@@ -112,12 +119,10 @@ li {margin-left: 2rem;}
     button {height: 1.5rem; width: 5rem;}
     #quizClock {position: fixed; margin-top: 1rem;}
     #startButton {width: 9rem;}
-    #checkScoresBtn {
-        margin-top: 1.5rem; 
-        margin-left: 10%; 
-        width: 9rem;
-        margin-bottom: 2rem;
-    }    
+    #checkScoresBtn {margin-top: 1.5rem; margin-left: 10%; width: 9rem;margin-bottom: 2rem;}    
+    #clearScoresBtn {font-size: small; height: 3rem;}
+    #tryAgainBtn {height: 3rem;}
+    .modal {width: 20rem;}
     .quizArea {width: 7rem;}
     .highScoreStyle {display: none;}
     .highScoreStyleMobile {display: block;}
