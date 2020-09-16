@@ -30,18 +30,18 @@ header {
 }
 
 button {
-    height: 3rem;
+height: 3rem;
     font-family: "Permanent Marker", cursive;
     width: 10rem;
 }
 
 
-li {
-    margin-left: 2rem;
-}
+li {margin-left: 2rem;}
 
 #quizBox {
     height: 100%;
+    margin-left: 10%;
+    z-index: 0;
 }
 
 #quizClock {
@@ -50,29 +50,30 @@ li {
     border-radius: 2rem;
     text-align: center;
     padding-top: 2rem;
+    z-index: 2;
 }
 
 #startButton {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     margin-left: 10%;
 }
 
-#userName {
-    margin-top: 1.5rem;
-}
+#userName {margin-top: 1.5rem;}
 
 #tryAgainBtn {
-    margin-left: 15rem;
+    margin-left: 10%;
     text-decoration: none;
 }
 
-#submitBtn {
+#submitBtn {margin-top: 1.5rem;}
+
+#checkScoresBtn {
     margin-top: 1.5rem;
+    margin-left: 10%;
+    margin-bottom: 2rem;
 }
 
-.quizArea {
-    margin-left: 10%;
-}
+.quizArea {margin-left: 10%;}
 
 .correctAnswer {
     animation-name: correctAnswer;
@@ -89,9 +90,10 @@ li {
     /* position: fixed; */
     margin-top: 2rem;
     margin-left: 20%;
-    z-index: 2;
-    width: 20%;
+    margin-right: 20%;
+    z-index: 3;
     height: 50rem;
+    width: 50rem;
     background-color: lightblue;
     border-radius: 2rem;
 }
@@ -100,4 +102,23 @@ li {
     background-color: white;
     margin-top: 3rem;
     margin-left: 2rem;
+}
+
+.highScoreStyleMobile {display: none;}
+
+@media (max-width: 768px){
+    body {font-size: small;}
+    main {background-size: 95%;}
+    button {height: 1.5rem; width: 5rem;}
+    #quizClock {position: fixed; margin-top: 1rem;}
+    #startButton {width: 9rem;}
+    #checkScoresBtn {
+        margin-top: 1.5rem; 
+        margin-left: 10%; 
+        width: 9rem;
+        margin-bottom: 2rem;
+    }    
+    .quizArea {width: 7rem;}
+    .highScoreStyle {display: none;}
+    .highScoreStyleMobile {display: block;}
 }

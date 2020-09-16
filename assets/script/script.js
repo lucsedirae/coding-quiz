@@ -25,6 +25,9 @@ var tempScoreArray = JSON.parse(localStorage.getItem("scores"));
 
 
 startButton.addEventListener("click", quizTimer);
+document.getElementById("checkScoresBtn").addEventListener("click", function(){
+    window.location.href = "highscores.html";
+})
 
 
 function quizTimer() {
